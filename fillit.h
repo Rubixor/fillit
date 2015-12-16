@@ -6,7 +6,7 @@
 /*   By: pgrassin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 19:01:38 by pgrassin          #+#    #+#             */
-/*   Updated: 2015/12/16 16:48:59 by pgrassin         ###   ########.fr       */
+/*   Updated: 2015/12/16 18:31:47 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ typedef struct		s_list
 	int				index;
 	struct s_list	*next;
 }					t_list;
+
 #endif

@@ -1,0 +1,3 @@
+monter la piece en haut a gauche :
+	tant que un des x != 0 on fait - 10
+	tant que un des y != 0 on fait - 1
