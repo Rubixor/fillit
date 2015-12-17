@@ -3,3 +3,9 @@ monter la piece en haut a gauche :
 	tant que un des y != 0 on fait - 1
 
 modifier index dans ft_lst_pushback
+
+
+si le plus petit carre pour ##  est bien un 2*2 faire attention /!\ un # poura sergfault au moment de test de metre 
+                            ##  				       # cette piece dans le tab 2*2
+                            					       # <-------------------
+                            					       #
