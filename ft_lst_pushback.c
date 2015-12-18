@@ -6,7 +6,7 @@
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/12 14:21:02 by mdenoyel          #+#    #+#             */
-/*   Updated: 2015/12/16 19:15:28 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2015/12/18 15:41:12 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,16 @@ t_list	*ft_lst_pushback(t_list **lst, t_list *item)
 {
 	t_list *tmp;
 
-	tmp = *lst;
-	if (!tmp)
+//	printf("Entrer lst_pushback\n");
+	if (!(*lst))
+	{
+		printf("if !lst in lst_pushback\n");
 		*lst = item;
+	}
 	else
 	{
+		tmp = *lst;
+		printf("if lst in lst_pushback\n");
 		while (tmp->next)
 			tmp = tmp->next;
 		tmp->next = item;
