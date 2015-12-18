@@ -6,7 +6,7 @@
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 19:40:13 by mdenoyel          #+#    #+#             */
-/*   Updated: 2015/12/16 19:50:08 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2015/12/18 15:43:58 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ t_list	*ft_newlst(void)
 	new_lst->coord3 = -1;
 	new_lst->coord4 = -1;
 	new_lst->index = 0;
+	new_lst->next = NULL;
 	return (new_lst);
 }
