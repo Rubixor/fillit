@@ -6,7 +6,7 @@
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 17:32:52 by mdenoyel          #+#    #+#             */
-/*   Updated: 2015/12/19 19:52:13 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2015/12/23 09:03:32 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 
+#include <math.h>// interdite
 int		main()
 {
 	int		fd;
@@ -27,8 +28,9 @@ int		main()
 	if (fd)
 		ft_check_block(fd, &lst);
 //		printf("Check block : %d\n", ft_check_block(fd, &lst));
-	m = ft_createmap();
+	m = ft_createmap(sqrt(5 / 4) + 0.5);
 	ft_move_upleft(lst);
+	ft_back(m, lst, 0, 0);
 	close(fd);
 	return (0);
 }

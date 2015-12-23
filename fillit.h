@@ -6,7 +6,7 @@
 /*   By: pgrassin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 19:01:38 by pgrassin          #+#    #+#             */
-/*   Updated: 2015/12/19 19:34:49 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2015/12/23 09:06:36 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct		s_list
 
 int					ft_back(t_map *m, t_list *l, int x, int y);
 
-int					ft_check_block(int fd, t_list **list);
+int					ft_check_block(int fd, t_list *list);
 
 int					ft_check_links(t_list *list);
 

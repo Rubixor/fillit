@@ -6,7 +6,7 @@
 /*   By: pgrassin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 16:52:31 by pgrassin          #+#    #+#             */
-/*   Updated: 2015/12/19 19:20:25 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2015/12/23 08:59:22 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,15 @@ int		ft_back(t_map *m, t_list *l, int x, int y)
 		}
 		else
 		{
-			ft_back(m, l, x, y);
+			x++;
 			if (m->map[x][y] ==  0)
 			{
 				x = 0;
 				y++;
 				ft_back(m, l, x, y);
 			}
+			else
+				ft_back(m, l, x, y);
 		}
 		if (!l->next)
 			return (1);
