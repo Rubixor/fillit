@@ -6,7 +6,7 @@
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/19 18:12:23 by mdenoyel          #+#    #+#             */
-/*   Updated: 2015/12/19 19:05:40 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2016/01/08 20:14:25 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_erase(int i, t_map *m)
 {
+	printf("{%d}", i);
 	int x;
 	int y;
 	int count;
@@ -27,11 +28,11 @@ void	ft_erase(int i, t_map *m)
 		{
 			m->map[x][y] = '.';
 			count++;
-			x++;
+			y++;
 			if (m->map[x][y] == 0)
 			{
-				x = 0;
-				y++;
+				y = 0;
+				x++;
 			}
 		}
 	}

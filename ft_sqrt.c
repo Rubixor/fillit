@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_createmap.c                                     :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/18 17:28:10 by mdenoyel          #+#    #+#             */
-/*   Updated: 2016/01/08 17:47:41 by mdenoyel         ###   ########.fr       */
+/*   Created: 2016/01/08 17:02:30 by mdenoyel          #+#    #+#             */
+/*   Updated: 2016/01/08 19:14:27 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "fillit.h"
-
-t_map	*ft_createmap(size_t size)
+int		ft_sqrt(int n)
 {
-	t_map	*m;
-	size_t	i;
+	int x;
 
-	m = (t_map *)malloc(sizeof(t_map));
-	i = 0;
-	m->map = (char **)malloc(sizeof(char *) * (size + 1));
-	while (i < size)
+	x = 0;
+	while (x * x <= n)
 	{
-		m->map[i] = (char *)malloc(sizeof(char) * (size + 1));
-		ft_memset(m->map[i], '.', size);
-		m->map[i][size] = 0;
-		i++;
+		if (x * x == n)
+			return (x);
+		x++;
 	}
-	m->map[size] = 0;
-	m->size = size;
-	return (m);
+	return (x - 1);
 }

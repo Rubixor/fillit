@@ -6,7 +6,7 @@
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 17:32:52 by mdenoyel          #+#    #+#             */
-/*   Updated: 2015/12/23 09:03:32 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2016/01/08 18:47:01 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,34 @@
 #include <fcntl.h>
 #include <stdlib.h>
 
-#include <math.h>// interdite
 int		main()
 {
 	int		fd;
 	t_list	*lst;
 	t_map	*m;
+	int		n;
+	int		i;
 
+	printf("Q");
 	lst = NULL;
 	fd = open("test.txt", O_RDONLY);
+	printf("z");
 	if (fd)
 		ft_check_block(fd, &lst);
-//		printf("Check block : %d\n", ft_check_block(fd, &lst));
-	m = ft_createmap(sqrt(5 / 4) + 0.5);
-	ft_move_upleft(lst);
-	ft_back(m, lst, 0, 0);
+	printf("a");
+	n = ft_move_upleft(lst);
+	i = ft_sqrt(n * 4) + 0.5;
+	printf("%d|%d|%d", i, ft_sqrt(n * 4),n);
+	m = ft_createmap(i);
+	printf("c");
+	while (!(ft_back(m, lst, 0, 0)))
+	{
+		i++;
+		printf("[%d]", i);
+		free(m);
+		m = ft_createmap(i);
+	}
+	ft_display(m);
 	close(fd);
 	return (0);
 }

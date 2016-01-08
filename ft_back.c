@@ -6,54 +6,71 @@
 /*   By: pgrassin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 16:52:31 by pgrassin          #+#    #+#             */
-/*   Updated: 2015/12/23 08:59:22 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2016/01/08 20:23:54 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		ft_back(t_map *m, t_list *l, int x, int y)
+static int	ft_verif_exist(t_map *m, int x, int y, t_list *l)
 {
-	if (m->map[x][y])
+	if ((x + l->coord1 % 10 < m->size && y + l->coord1 / 10 < m->size)
+			&& (x + l->coord2 % 10 < m->size && y + l->coord2 / 10 < m->size)
+			&& (x + l->coord3 % 10 < m->size && y + l->coord3 / 10 < m->size)
+			&& (x + l->coord4 % 10 < m->size && y + l->coord4 / 10 < m->size))
+		return (1);
+	return (0);
+}
+
+static int	ft_is_point(t_map *m, int x, int y, t_list *l)
+{
+	if ((m->map[x + l->coord1 % 10][y + l->coord1 / 10] == '.')
+			&& (m->map[x + l->coord2 % 10][y + l->coord2 / 10] == '.')
+			&& (m->map[x + l->coord3 % 10][y + l->coord3 / 10] == '.')
+			&& (m->map[x + l->coord4 % 10][y + l->coord4 / 10] == '.'))
+		return (1);
+	return (0);
+}
+
+static int	ft_help(t_map *m, t_list *l, int x, int y)
+{
+	y++;
+	if (m->map[x][y] == 0)
 	{
-		if ((m->map[x + l->coord1 / 10][y + l->coord1 % 10]
-				&& m->map[x + l->coord2 / 10][y + l->coord2 % 10]
-				&& m->map[x + l->coord3 / 10][y + l->coord3 % 10]
-				&& m->map[x + l->coord4 / 10][y + l->coord4 % 10])
-				&& (m->map[x + l->coord1 / 10][y + l->coord1 % 10] == '.'
-				&& m->map[x + l->coord2 / 10][y + l->coord2 % 10] == '.'
-				&& m->map[x + l->coord3 / 10][y + l->coord3 % 10] == '.'
-				&& m->map[x + l->coord4 / 10][y + l->coord4 % 10] == '.'))
+		y = 0;
+		x++;
+	}
+	return (ft_back(m, l, x, y));
+
+}
+int			ft_back(t_map *m, t_list *l, int x, int y)
+{
+	printf("\nx = %d.y = %d, index = %d", x, y, l->index);
+	if (x < m->size)
+	{
+		if (ft_verif_exist(m, x, y, l))
 		{
-			m->map[x + l->coord1 / 10][y + l->coord1 % 10] = 'A' + l->index;
-			m->map[x + l->coord2 / 10][y + l->coord2 % 10] = 'A' + l->index;
-			m->map[x + l->coord3 / 10][y + l->coord3 % 10] = 'A' + l->index;
-			m->map[x + l->coord4 / 10][y + l->coord4 % 10] = 'A' + l->index;
-		}
-		else
-		{
-			x++;
-			if (m->map[x][y] ==  0)
+			printf("\n(x = %d.y = %d, index = %d)", x, y, l->index);
+			if (ft_is_point(m, x, y, l))
 			{
-				x = 0;
-				y++;
-				ft_back(m, l, x, y);
+				printf("\n[x = %d.y = %d, index = %d]", x, y, l->index);
+				m->map[x + l->coord1 % 10][y + l->coord1 / 10] = 'A' + l->index;
+				m->map[x + l->coord2 % 10][y + l->coord2 / 10] = 'A' + l->index;
+				m->map[x + l->coord3 % 10][y + l->coord3 / 10] = 'A' + l->index;
+				m->map[x + l->coord4 % 10][y + l->coord4 / 10] = 'A' + l->index;
+				if (!l->next)
+					return (1);
+				if (ft_back(m, l->next, 0, 0))
+					return (1);
+				ft_erase('A' + l->index, m);
+				return (ft_help(m, l, x, y));
 			}
 			else
-				ft_back(m, l, x, y);
+				return (ft_help(m, l, x, y));
 		}
-		if (!l->next)
-			return (1);
-		if (ft_back(m, l->next, 0, 0))
-			return (1);
 		else
-		{
-			ft_erase('A' + l->index, m);
-			if (m->map[++x][y] != 0)
-				return (ft_back(m, l, x, y));
-			x = 0;
-			return (ft_back(m, l, x, y++));
-		}
+			return (ft_help(m, l, x, y));
 	}
-	return (0);
+	//printf("\n{x = %d.y = %d, index = %d}", x, y, l->index);
+	return (0); // penser a remetre a 0
 }

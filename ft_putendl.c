@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_createmap.c                                     :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/18 17:28:10 by mdenoyel          #+#    #+#             */
-/*   Updated: 2016/01/08 17:47:41 by mdenoyel         ###   ########.fr       */
+/*   Created: 2016/01/08 17:52:37 by mdenoyel          #+#    #+#             */
+/*   Updated: 2016/01/08 17:59:50 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "fillit.h"
+#include <unistd.h>
 
-t_map	*ft_createmap(size_t size)
+static size_t	ft_strlen(const char *s)
 {
-	t_map	*m;
-	size_t	i;
+	size_t i;
 
-	m = (t_map *)malloc(sizeof(t_map));
 	i = 0;
-	m->map = (char **)malloc(sizeof(char *) * (size + 1));
-	while (i < size)
-	{
-		m->map[i] = (char *)malloc(sizeof(char) * (size + 1));
-		ft_memset(m->map[i], '.', size);
-		m->map[i][size] = 0;
+	while (s[i])
 		i++;
-	}
-	m->map[size] = 0;
-	m->size = size;
-	return (m);
+	return (i);
+}
+
+static void		ft_putstr(const char *s)
+{
+	write(1, s, ft_strlen(s));
+}
+
+static void		ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void			ft_putendl(const char *s)
+{
+	ft_putstr(s);
+	ft_putchar('\n');
 }

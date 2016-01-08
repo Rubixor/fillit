@@ -6,13 +6,13 @@
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 18:48:40 by mdenoyel          #+#    #+#             */
-/*   Updated: 2015/12/19 19:21:10 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2016/01/08 18:27:45 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_move_upleft(t_list *list)
+int		ft_move_upleft(t_list *list)
 {
 //	printf("Entree move\n");
 	int		i;
@@ -39,9 +39,10 @@ void	ft_move_upleft(t_list *list)
 		}
 		list->index = i;
 		i++;
-//		printf("coord1 = %d, coord2 = %d, coord3 = %d, coord4 = %d, index = %d\n"
-//				, list->coord1, list->coord2, list->coord3,
-//				list->coord4, list->index);
+		printf("coord1 = %d, coord2 = %d, coord3 = %d, coord4 = %d, index = %d\n"
+				, list->coord1, list->coord2, list->coord3,
+				list->coord4, list->index);
 		list = list->next;
 	}
+	return (i + 1);
 }

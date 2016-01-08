@@ -6,7 +6,7 @@
 /*   By: pgrassin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 19:01:38 by pgrassin          #+#    #+#             */
-/*   Updated: 2015/12/23 09:06:36 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2016/01/08 18:06:42 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,13 @@ typedef struct		s_list
 
 int					ft_back(t_map *m, t_list *l, int x, int y);
 
-int					ft_check_block(int fd, t_list *list);
+int					ft_check_block(int fd, t_list **list);
 
 int					ft_check_links(t_list *list);
 
 t_map				*ft_createmap(size_t size);
+
+void				ft_display(t_map *m);
 
 void				ft_erase(int i, t_map *m);
 
@@ -51,8 +53,12 @@ t_list				*ft_lstlast(t_list *lst);
 
 void				*ft_memset(void *b, int c, size_t len);
 
-void				ft_move_upleft(t_list *list);
+int					ft_move_upleft(t_list *list);
 
 t_list				*ft_newlst(void);
+
+void				ft_putendl(const char *s);
+
+int					ft_sqrt(int n);
 
 #endif
