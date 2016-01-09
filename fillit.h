@@ -6,7 +6,7 @@
 /*   By: pgrassin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 19:01:38 by pgrassin          #+#    #+#             */
-/*   Updated: 2016/01/08 18:06:42 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2016/01/09 16:51:16 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 typedef struct		s_map
 {
 	char			**map;
-	size_t			size;
+	int				size;
+	char			padding[4];
 }					t_map;
 
 typedef struct		s_list
@@ -28,6 +29,7 @@ typedef struct		s_list
 	int				coord3;
 	int				coord4;
 	int				index;
+	char			padding[4];
 	struct s_list	*next;
 }					t_list;
 
@@ -37,11 +39,13 @@ int					ft_check_block(int fd, t_list **list);
 
 int					ft_check_links(t_list *list);
 
-t_map				*ft_createmap(size_t size);
+t_map				*ft_createmap(int size);
 
 void				ft_display(t_map *m);
 
 void				ft_erase(int i, t_map *m);
+
+int					ft_error();
 
 t_list				*ft_lst_pushback(t_list **lst, t_list *item);
 
@@ -51,13 +55,15 @@ void				ft_lstdelone(t_list *alst);
 
 t_list				*ft_lstlast(t_list *lst);
 
-void				*ft_memset(void *b, int c, size_t len);
+void				*ft_memset(void *b, int c, int len);
 
 int					ft_move_upleft(t_list *list);
 
 t_list				*ft_newlst(void);
 
 void				ft_putendl(const char *s);
+
+void				ft_putendl_error(const char *s);
 
 int					ft_sqrt(int n);
 

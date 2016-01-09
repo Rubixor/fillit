@@ -6,7 +6,7 @@
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 20:06:53 by mdenoyel          #+#    #+#             */
-/*   Updated: 2015/12/18 15:15:34 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2016/01/09 17:00:11 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,13 +104,11 @@ int			ft_check_links(t_list *list)
 	int links3;
 	int links4;
 
-//	printf("Entree check_link\n");
 	links1 = ft_check_links_1(list);
 	links2 = ft_check_links_2(list);
 	links3 = ft_check_links_3(list);
 	links4 = ft_check_links_4(list);
 	total_links = links1 + links2 + links3 + links4;
-//	printf("total links = %d\n", total_links);
 	if (total_links != 6 && total_links != 8)
 		return (0);
 	else

@@ -6,7 +6,7 @@
 /*   By: pgrassin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 16:52:31 by pgrassin          #+#    #+#             */
-/*   Updated: 2016/01/08 20:23:54 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2016/01/09 16:58:25 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,16 @@ static int	ft_help(t_map *m, t_list *l, int x, int y)
 		x++;
 	}
 	return (ft_back(m, l, x, y));
-
 }
+
 int			ft_back(t_map *m, t_list *l, int x, int y)
 {
-	printf("\nx = %d.y = %d, index = %d", x, y, l->index);
 	if (x < m->size)
 	{
 		if (ft_verif_exist(m, x, y, l))
 		{
-			printf("\n(x = %d.y = %d, index = %d)", x, y, l->index);
 			if (ft_is_point(m, x, y, l))
 			{
-				printf("\n[x = %d.y = %d, index = %d]", x, y, l->index);
 				m->map[x + l->coord1 % 10][y + l->coord1 / 10] = 'A' + l->index;
 				m->map[x + l->coord2 % 10][y + l->coord2 / 10] = 'A' + l->index;
 				m->map[x + l->coord3 % 10][y + l->coord3 / 10] = 'A' + l->index;
@@ -71,6 +68,5 @@ int			ft_back(t_map *m, t_list *l, int x, int y)
 		else
 			return (ft_help(m, l, x, y));
 	}
-	//printf("\n{x = %d.y = %d, index = %d}", x, y, l->index);
-	return (0); // penser a remetre a 0
+	return (0);
 }
