@@ -6,7 +6,7 @@
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 17:32:52 by mdenoyel          #+#    #+#             */
-/*   Updated: 2016/01/09 17:01:56 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2016/01/09 17:07:11 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 
-int		main()
+int		main(void)
 {
 	int		fd;
 	t_list	*lst;

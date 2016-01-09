@@ -6,13 +6,13 @@
 /*   By: mdenoyel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/09 16:44:42 by mdenoyel          #+#    #+#             */
-/*   Updated: 2016/01/09 16:51:39 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2016/01/09 17:06:44 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		ft_error()
+int		ft_error(void)
 {
 	ft_putendl_error("error");
 	return (0);

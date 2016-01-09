@@ -6,7 +6,7 @@
 /*   By: pgrassin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 19:01:38 by pgrassin          #+#    #+#             */
-/*   Updated: 2016/01/09 16:51:16 by mdenoyel         ###   ########.fr       */
+/*   Updated: 2016/01/09 17:06:52 by mdenoyel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void				ft_display(t_map *m);
 
 void				ft_erase(int i, t_map *m);
 
-int					ft_error();
+int					ft_error(void);
 
 t_list				*ft_lst_pushback(t_list **lst, t_list *item);
 
